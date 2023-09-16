@@ -1,0 +1,26 @@
+class Solution:
+    def stringMatching (words):
+        out=[]
+        words.sort()
+        l=0
+        r=0
+
+        while(l<len(words)):
+            K=len(words[l])
+            r=0
+            while r<len(words):
+                if r!=l:
+                    res = []
+                    test_str=words[r]
+                    
+                    for i in range(len(test_str) - K + 1):
+                        res.append(test_str[i:i+K])
+
+                    if words[l] in res:
+                        out.append(words[l])
+                r+=1
+            l+=1
+                
+        return(out)
+    
+    print(stringMatching(["mass","as","hero","superhero"]))
