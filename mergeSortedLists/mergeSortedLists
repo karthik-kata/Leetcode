@@ -1,0 +1,21 @@
+def merge(nums1,nums2,m,n):
+    final=m+n-1
+    count=0
+    i=0
+    while i < n:
+            j=0
+            while j < len(nums2):
+                if nums2[i]<= nums1[j]:
+                    nums1.insert(j, nums2[i])
+                    count+=1
+                    break
+                j+=1
+            i+=1
+            
+    nums1[m+count:m+count]=nums2[count: n]
+
+    nums1= nums1[0:n+m]
+    return(nums1)
+
+
+print(merge([1,2,3,0,0,0], [2,5,6], 3, 3))
