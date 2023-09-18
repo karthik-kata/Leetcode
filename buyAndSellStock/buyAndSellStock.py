@@ -1,15 +1,15 @@
-#WIP
 class Solution:
-    def maxProfit(prices) -> int:
-        max_price=0
-        l=0
-        while(l<len(prices)):
-            r=l+1
-            while(r<len(prices)):
-                difference= prices[r] - prices[l]
-                max_price = max(difference, max_price)
+    def maxProfit(self, prices: List[int]) -> int:
+        l = 0
+        r = 1
+        difference = 0
+
+        while r < len(prices):
+            if (prices[r]<prices[l]):
+                l=r
                 r+=1
-            l+=1
-        return(max_price)
+                continue
+            difference = max( difference, prices[r] - prices[l])
+            r+=1
+        return(difference)
             
-    print(maxProfit([7,1,5,3,6,4]))

@@ -1,0 +1,17 @@
+class Solution:
+    def longestCommonPrefix(strs: list[str]) -> str:
+        answer=""
+        i=0
+        smallest_word = min(strs, key=len)
+        while i < len(smallest_word):
+            j=1
+            current_letter= strs[strs.index(smallest_word)][i]
+            while j < len(strs):
+                if current_letter != strs[j][i]:
+                    return answer
+                j+=1
+            answer += str(current_letter)
+            i+=1
+        return(answer)
+    
+                    
